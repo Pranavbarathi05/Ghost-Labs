@@ -1,8 +1,10 @@
 # 🚀 Ghost Labs
 
-**Secure Collaborative Workspace with Persistent Linux Labs + AI Agent**
+**Next-Generation Collaborative Development Platform with Persistent Linux Labs + AI Agent**
 
-A cutting-edge platform where users can create rooms, chat in real-time, and launch personal lightweight Linux workspaces that persist through snapshots. Collaborate remotely with teammates by switching between workspaces via tabs (with permission), all while maintaining security through tunnel-based access.
+> **Inspired by [SyncLab](https://github.com/sikehish/SyncLab)** - Combining real-time collaboration with persistent Docker workspaces
+
+A cutting-edge platform where developers can collaborate in real-time with video calling, whiteboard brainstorming, and shared code editing - all while working in persistent Linux environments that save your progress. Perfect for pair programming, coding interviews, hackathons, and remote teaching.
 
 ---
 
@@ -12,85 +14,120 @@ A cutting-edge platform where users can create rooms, chat in real-time, and lau
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Development Workflow](#development-workflow)
-- [Contributing Guidelines](#contributing-guidelines)
-- [Issue Management](#issue-management)
-- [Feature Proposals](#feature-proposals)
+- [Quick Start](#quick-start)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
 - [License](#license)
 
 > **🚀 New to the project?** Start with [QUICK_START.md](QUICK_START.md) for a visual guide!
+> **🏗️ Architecture Details:** Check [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ---
 
 ## 🎯 Overview
 
-Ghost Labs is a collaborative platform designed to help students and developers work together in secure, isolated Linux environments. Each user gets their own containerized Ubuntu workspace with the ability to:
+Ghost Labs is a revolutionary collaborative development platform that combines the best of SyncLab's real-time features with powerful persistent workspace capabilities. Each user gets:
 
-- 💬 Communicate in real-time with team members
-- 🖥️ Launch and manage persistent Linux workspaces
-- 📸 Save workspace snapshots and resume later
-- 👥 Collaborate by accessing teammates' workspaces (with permission)
-- 🤖 Get AI-powered coding assistance
-- 🔒 Maintain security through Cloudflare Tunnel integration
+- 🎥 **High-quality video/audio calling** for pair programming
+- 🎨 **Interactive whiteboard** for system design and brainstorming  
+- 💻 **Real-time code editor** with syntax highlighting and IntelliSense
+- 🖥️ **Persistent Linux workspaces** that save your progress
+- 📸 **Workspace snapshots** to resume exactly where you left off
+- 🤖 **AI-powered assistant** for coding help and explanations
+- 👥 **Multi-user collaboration** with role-based permissions
+- 🔒 **Enterprise-grade security** with encrypted communication
 
-This project serves as an excellent learning opportunity for full-stack development, containerization, real-time systems, and modern DevOps practices.
+Perfect for **coding interviews**, **hackathons**, **remote teaching**, **code reviews**, and **team projects**.
 
 ---
 
 ## ✨ Features
 
-### Core Functionality
-- **User Authentication**: Secure registration and login system
-- **Room Management**: Create and join collaborative rooms
-- **Real-time Chat**: WebSocket-based encrypted messaging
-- **Linux Workspaces**: Docker-based Ubuntu containers per user
-- **Snapshot System**: Save and restore workspace states
-- **Permission System**: Role-based access control (view/control)
-- **Secure Tunneling**: Cloudflare Tunnel for secure access
-- **AI Agent**: Integrated coding assistant for generation, rewriting, and explanations
+### Inspired by SyncLab
+Ghost Labs incorporates proven collaboration features from [SyncLab](https://github.com/sikehish/SyncLab) and adds unique persistent workspace capabilities:
 
-### Technical Features
-- Tab-based workspace switching
-- WebSocket real-time communication
-- Container orchestration with Docker
-- MCP (Model Context Protocol) server integration
-- Browser-based terminal (xterm.js)
-- Optional video streaming (noVNC/WebRTC)
+**From SyncLab:**
+- ✨ **Video/Audio Calling** - Agora SDK integration for crystal-clear communication
+- ✨ **Whiteboard Collaboration** - Excalidraw for visual brainstorming
+- ✨ **Real-time Code Editor** - Monaco Editor (VS Code's engine) with live sync
+- ✨ **File Upload/Download** - Seamlessly transfer files to/from containers
+- ✨ **Real-time Chat** - Text messaging alongside voice
+- ✨ **Modular Architecture** - Clean component structure and service layers
+
+**Ghost Labs Exclusive:**
+- 💾 **Persistent Workspaces** - Containers that persist between sessions
+- 📸 **Advanced Snapshots** - Save/restore entire workspace states
+- 🤖 **AI Agent Integration** - Built-in coding assistant
+- ⚡ **Terminal Access** - Full Linux terminal via xterm.js
+- 🔧 **Package Management** - Customize container with dev tools
+- 🔄 **Multiple Workspaces** - Up to 2 workspaces per room
+
+### Real-Time Collaboration
+- **Video/Audio Calling** - HD video and audio with Agora SDK
+- **Screen Sharing** - Share your screen for presentations
+- **Whiteboard** - Draw diagrams, flowcharts, and system designs
+- **Code Editor** - Monaco Editor with real-time synchronization
+- **Text Chat** - Instant messaging with file sharing
+- **Presence Indicators** - See who's online and active
+
+### Workspace Management
+- **Persistent Linux Environments** - Your workspace saves automatically
+- **Docker Containers** - Ubuntu/Debian/Kali Linux options
+- **Snapshot/Restore** - Save workspace states and resume anytime
+- **File Manager** - Upload/download files directly to containers
+- **Package Selection** - Choose dev tools, editors, databases
+- **Multiple Workspaces** - Create up to 2 workspaces per room
+
+### Development Tools
+- **Terminal Access** - Full bash terminal in your browser
+- **Code Editor** - Syntax highlighting for 50+ languages
+- **File Tree Navigation** - Browse container filesystem
+- **AI Coding Assistant** - Get code suggestions and explanations
+- **Version Control** - Git pre-installed in containers
+
+### Security & Permissions
+- **JWT Authentication** - Secure token-based auth
+- **Role-Based Access** - Owner, Admin, Member, Viewer roles
+- **Encrypted Communication** - All data encrypted in transit
+- **Isolated Containers** - Each workspace is sandboxed
+- **Cloudflare Tunnel** - Secure external access (optional)
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- **React 18** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **React Router** - Navigation
+- **React 18** + **TypeScript** - Modern UI framework
+- **Vite** - Lightning-fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **Monaco Editor** - VS Code's editor engine
+- **Excalidraw** - Collaborative whiteboard
+- **Agora SDK** - Video/audio calling
 - **xterm.js** - Terminal emulation
 - **Socket.io Client** - Real-time communication
-- **TanStack Query** - Data fetching and caching
+- **TanStack Query** - Data fetching and state management
+- **Framer Motion** - Smooth animations
 
 ### Backend
 - **FastAPI** - High-performance Python web framework
-- **WebSockets** - Real-time bidirectional communication
-- **PostgreSQL** - Relational database
-- **SQLAlchemy** - ORM
-- **JWT** - Authentication
-- **Pydantic** - Data validation
+- **PostgreSQL** - Relational database for user data
+- **Redis** - In-memory store for real-time features
+- **SQLAlchemy** - ORM for database operations
+- **WebSockets** - Bidirectional real-time communication
+- **JWT** - Secure authentication tokens
+- **Pydantic** - Data validation and settings management
 
 ### Infrastructure
-- **Docker** - Containerization
+- **Docker** - Container runtime for workspaces
 - **Docker Compose** - Multi-container orchestration
-- **Ubuntu** - Workspace containers
-- **Cloudflare Tunnel** - Secure access
-- **Nginx** - Reverse proxy (optional)
+- **Ubuntu/Debian/Kali** - Workspace container images
+- **Cloudflare Tunnel** - Secure access (optional)
+- **Nginx** - Reverse proxy (production)
 
-### AI Layer
-- **FastAPI** - AI service API
-- **LLM Integration** - OpenAI/Anthropic (to be configured)
-- **MCP Server** - Model Context Protocol for workspace tooling
+### AI & Integration
+- **OpenAI API** - GPT models for coding assistance
+- **Anthropic Claude** - Alternative LLM option
+- **Agora RTC** - Real-time communication platform
 
 ---
 
@@ -101,7 +138,7 @@ Before you begin, ensure you have the following installed:
 ### Required
 - **Git** - Version control
 - **Docker** - Container runtime (20.10+)
-- **Docker Compose** - Multi-container tool (v2.0+)
+- **Docker Compose** - Multi-container orchestration
 - **Python** - 3.11 or higher
 - **Node.js** - 20.x or higher
 - **npm** - 10.x or higher
@@ -123,31 +160,317 @@ npm --version
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Quick Start
 
-### 1. Clone the Repository
+### Option 1: Docker Compose (Recommended)
 
 ```bash
+# Clone the repository
 git clone https://github.com/Pranavbarathi05/Ghost-Labs.git
 cd Ghost-Labs
+
+# Copy environment files
+cp backend/.env.example backend/.env
+cp frontend/.env.example frontend/.env
+
+# Edit with your credentials (Agora, OpenAI, etc.)
+nano backend/.env
+nano frontend/.env
+
+# Start all services
+docker-compose up --build
+
+# Access the application
+# Frontend: http://localhost:3000
+# Backend API: http://localhost:8000
+# API Docs: http://localhost:8000/docs
 ```
 
-### 2. Set Up Environment Variables
+### Option 2: Local Development
 
+**Backend:**
 ```bash
-# Copy the example environment file
-cp .env.example .env
+cd backend
 
-# Edit .env with your preferred editor
-nano .env  # or vim, code, etc.
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate  # Linux/Mac
+# or: venv\Scripts\activate  # Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Copy and edit environment file
+cp .env.example .env
+nano .env
+
+# Run backend
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-**Important**: Update the following in `.env`:
-- `SECRET_KEY` - Generate using: `openssl rand -hex 32`
-- `DATABASE_URL` - Your friend will configure PostgreSQL
-- `OPENAI_API_KEY` - (Optional) For AI features
+**Frontend:**
+```bash
+cd frontend
 
-### 3. Database Setup
+# Install dependencies
+npm install
+
+# Copy and edit environment file
+cp .env.example .env
+nano .env
+
+# Run frontend
+npm run dev
+```
+
+**Services:**
+```bash
+# Start PostgreSQL and Redis
+docker-compose up -d db redis
+```
+
+### Get API Keys
+
+#### Agora (Video/Audio)
+1. Sign up at https://www.agora.io/
+2. Create a project
+3. Copy **App ID** and **App Certificate**
+4. Add to `backend/.env` and `frontend/.env`
+
+#### OpenAI (AI Assistant) - Optional
+1. Get API key from https://platform.openai.com/
+2. Add to `backend/.env`
+
+### 4. Access the Application
+
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8000
+- **API Documentation**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [QUICK_START.md](QUICK_START.md) | Visual quick start guide for contributors |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Complete architecture and structure |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute to the project |
+| [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md) | Git workflow and best practices |
+| [docs/DIRECTORY_GUIDE.md](docs/DIRECTORY_GUIDE.md) | Directory structure explained |
+| [docs/API.md](docs/API.md) | API endpoint documentation |
+| [docs/CONFIGURATION.md](docs/CONFIGURATION.md) | Environment configuration guide |
+| [docs/CODERABBIT_SETUP.md](docs/CODERABBIT_SETUP.md) | AI code review setup |
+| [INITIAL_ISSUES.md](INITIAL_ISSUES.md) | Beginner-friendly starter tasks |
+
+---
+
+## 🎯 Use Cases
+
+### 1. Coding Interviews
+- Video call with candidate
+- Share whiteboard for system design
+- Code together in Monaco editor
+- Review code in real-time
+- Save workspace for later review
+
+### 2. Pair Programming
+- Work together on the same codebase
+- Video/audio for communication
+- Screen sharing for debugging
+- Persistent workspace saves progress
+
+### 3. Hackathons
+- Quick team setup with rooms
+- Multiple workspaces for different services
+- Whiteboard for planning
+- File sharing for assets
+
+### 4. Remote Teaching
+- Teach Linux commands in real terminal
+- Show code examples in editor
+- Draw diagrams on whiteboard
+- Students can follow along in their workspace
+
+### 5. Code Reviews
+- Review code together with video
+- Discuss architecture on whiteboard
+- Test changes in live environment
+- Leave comments in chat
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Here's how to get started:
+
+### For Beginners
+1. Check [INITIAL_ISSUES.md](INITIAL_ISSUES.md) for beginner-friendly tasks
+2. Read [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines
+3. Follow [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md) for Git best practices
+
+### For Experienced Contributors
+1. Review [ARCHITECTURE.md](ARCHITECTURE.md) for architecture details
+2. Check [INITIAL_ISSUES.md](INITIAL_ISSUES.md) for implementation tasks
+3. Set up [docs/CODERABBIT_SETUP.md](docs/CODERABBIT_SETUP.md) for AI code review
+
+### Development Workflow
+```bash
+# Create your feature branch
+git checkout -b your-name/feature-description
+
+# Make your changes
+# Test thoroughly
+
+# Commit with clear messages
+git commit -m "feat: add video calling feature"
+
+# Push to your branch
+git push origin your-name/feature-description
+
+# Create a Pull Request on GitHub
+```
+
+---
+
+## 🧪 Testing
+
+### Backend Tests
+```bash
+cd backend
+pytest tests/ -v --cov=.
+```
+
+### Frontend Tests
+```bash
+cd frontend
+npm run test
+```
+
+### Integration Tests
+```bash
+docker-compose up -d
+# Run integration test suite
+```
+
+---
+
+## 🚀 Deployment
+
+### Production Deployment
+See detailed guide in `docs/DEPLOYMENT.md` (coming soon)
+
+### Quick Deploy with Docker
+```bash
+# Build production images
+docker-compose -f docker-compose.prod.yml build
+
+# Start services
+docker-compose -f docker-compose.prod.yml up -d
+
+# Check logs
+docker-compose logs -f
+```
+
+---
+
+## 🛠️ Troubleshooting
+
+### Common Issues
+
+**Q: Redis connection failed**
+```bash
+# Ensure Redis is running
+docker-compose up -d redis
+redis-cli ping  # Should return PONG
+```
+
+**Q: Port already in use**
+```bash
+# Find process using port 8000
+lsof -i :8000
+# Kill process or change port in .env
+```
+
+**Q: Frontend can't connect to backend**
+```bash
+# Check VITE_API_URL in frontend/.env
+# Should be http://localhost:8000
+```
+
+**Q: Video calling not working**
+```bash
+# Verify Agora credentials in .env
+# Check browser console for errors
+# Ensure HTTPS or localhost (required by browsers)
+```
+
+For more troubleshooting, check the API documentation at http://localhost:8000/docs
+
+---
+
+## 📊 Project Status
+
+- **Version**: 1.0.0
+- **Status**: Active Development
+- **License**: MIT (see LICENSE)
+
+### Roadmap
+- [x] Basic authentication and rooms
+- [x] Docker workspace management
+- [x] Snapshot system
+- [x] Real-time chat
+- [ ] Video/audio calling
+- [ ] Whiteboard collaboration
+- [ ] Code editor sync
+- [ ] File upload/download
+- [ ] Mobile app
+- [ ] VS Code extension
+- [ ] Advanced AI features
+- [ ] Kubernetes deployment
+
+---
+
+## 🙏 Acknowledgments
+
+- **[SyncLab](https://github.com/sikehish/SyncLab)** by @sikehish - Inspiration for real-time collaboration features
+- **Agora.io** - Real-time communication platform
+- **Excalidraw** - Amazing whiteboard tool
+- **Monaco Editor** - VS Code's powerful editor
+- All our contributors and supporters
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📧 Contact
+
+- **Project Lead**: Pranav Barathi
+- **GitHub**: [@Pranavbarathi05](https://github.com/Pranavbarathi05)
+- **Issues**: [GitHub Issues](https://github.com/Pranavbarathi05/Ghost-Labs/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Pranavbarathi05/Ghost-Labs/discussions)
+
+---
+
+## ⭐ Show Your Support
+
+If you find Ghost Labs useful, please consider:
+- ⭐ Starring the repository
+- 🍴 Forking and contributing
+- 📢 Sharing with your network
+- 🐛 Reporting bugs
+- 💡 Suggesting features
+
+---
+
+**Built with ❤️ by the Ghost Labs Team**
+
+*Empowering developers to collaborate anywhere, anytime.*
 
 **Note**: Your team member will handle PostgreSQL setup. Once configured, the connection details should be added to `.env`.
 

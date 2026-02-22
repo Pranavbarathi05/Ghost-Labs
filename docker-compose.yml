@@ -21,6 +21,23 @@ services:
       timeout: 5s
       retries: 5
 
+  # Redis (for real-time features, port management)
+  redis:
+    image: redis:7-alpine
+    container_name: ghostlabs-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ghostlabs-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    command: redis-server --appendonly yes
+
   # Backend API (FastAPI)
   backend:
     build:
@@ -29,8 +46,11 @@ services:
     container_name: ghostlabs-backend
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/ghostlabs
+      - REDIS_URL=redis://redis:6379/0
       - SECRET_KEY=${SECRET_KEY:-your-secret-key-change-in-production}
       - AI_SERVICE_URL=http://ai-service:8001
+      - AGORA_APP_ID=${AGORA_APP_ID:-}
+      - AGORA_APP_CERTIFICATE=${AGORA_APP_CERTIFICATE:-}
     ports:
       - "8000:8000"
     volumes:
@@ -39,6 +59,8 @@ services:
       - workspace_snapshots:/app/snapshots
     depends_on:
       db:
+        condition: service_healthy
+      redis:
         condition: service_healthy
     networks:
       - ghostlabs-network
@@ -97,6 +119,7 @@ services:
 
 volumes:
   postgres_data:
+  redis_data:
   workspace_snapshots:
 
 networks:
