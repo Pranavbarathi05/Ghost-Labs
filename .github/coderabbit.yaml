@@ -1,0 +1,29 @@
+# CodeRabbit GitHub Actions Configuration
+# This file configures CodeRabbit integration with GitHub
+
+# Enable CodeRabbit for this repository
+enabled: true
+
+# Auto-trigger on these events
+triggers:
+  - pull_request
+  - pull_request_review
+  - pull_request_review_comment
+
+# Assign reviewers automatically
+auto_assign:
+  enabled: true
+  include_labels:
+    - needs-review
+  
+# Review reminders
+reminders:
+  enabled: true
+  frequency: 2 days
+
+# Integration settings
+integrations:
+  github:
+    enabled: true
+    check_runs: true
+    status_checks: true

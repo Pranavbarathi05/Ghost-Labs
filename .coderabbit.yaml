@@ -1,0 +1,226 @@
+# CodeRabbit Configuration for Ghost Labs
+# AI-powered code review and quality checks
+
+# Language settings
+language: en-US
+
+# Early access features
+early_access: true
+
+# Review settings
+reviews:
+  # Review profile (chill, assertive, or custom)
+  profile: assertive
+  
+  # Request changes for critical issues
+  request_changes_workflow: true
+  
+  # High level summary
+  high_level_summary: true
+  
+  # Poem style for summaries (fun, professional, or off)
+  poem: off
+  
+  # Review status comment
+  review_status: true
+  
+  # Collapse walkthrough details
+  collapse_walkthrough: false
+  
+  # Enable auto-reviews on push
+  auto_review:
+    enabled: true
+    drafts: false
+    base_branches:
+      - main
+      - develop
+
+# Path-based instructions for different parts of the codebase
+path_instructions:
+  - path: "backend/**/*.py"
+    instructions: |
+      - Check for proper error handling and exception management
+      - Verify SQLAlchemy queries are optimized and avoid N+1 problems
+      - Ensure proper async/await usage with FastAPI
+      - Check for security vulnerabilities (SQL injection, XSS, etc.)
+      - Verify input validation with Pydantic schemas
+      - Check for proper logging instead of print statements
+      - Ensure proper type hints are used
+  
+  - path: "backend/api/**/*.py"
+    instructions: |
+      - Verify proper HTTP status codes are returned
+      - Check for proper authentication/authorization decorators
+      - Ensure API endpoints follow REST conventions
+      - Verify proper request/response schema validation
+      - Check for rate limiting considerations
+  
+  - path: "backend/tests/**/*.py"
+    instructions: |
+      - Verify test coverage is adequate
+      - Check for proper test isolation
+      - Ensure tests use fixtures appropriately
+      - Verify edge cases are tested
+      - Check for async test handling
+  
+  - path: "frontend/src/**/*.{ts,tsx}"
+    instructions: |
+      - Check for proper TypeScript types (avoid 'any')
+      - Verify proper error handling in async operations
+      - Check for accessibility (a11y) issues
+      - Ensure proper React hooks usage (dependencies, cleanup)
+      - Verify no memory leaks (event listeners, subscriptions)
+      - Check for proper state management
+      - Ensure components are reasonably sized and focused
+  
+  - path: "frontend/src/components/**/*.tsx"
+    instructions: |
+      - Verify components are reusable and properly abstracted
+      - Check for proper prop validation
+      - Ensure proper component naming conventions
+      - Verify no business logic in presentational components
+  
+  - path: "docker-compose.yml"
+    instructions: |
+      - Check for security issues (exposed ports, credentials)
+      - Verify proper volume mounts
+      - Check for resource limits
+      - Ensure proper networking configuration
+  
+  - path: "**/*.md"
+    instructions: |
+      - Check for broken links
+      - Verify code examples are correct
+      - Ensure proper formatting
+      - Check for typos and grammar
+
+# Chat settings
+chat:
+  auto_reply: true
+
+# Tools configuration
+tools:
+  # GitHub Checks
+  github-checks:
+    enabled: true
+    timeout: 5m
+  
+  # AST-based code analysis
+  ast-grep:
+    enabled: true
+    rule_dirs:
+      - .coderabbit/rules
+
+# Knowledge base paths (for context)
+knowledge_base:
+  - "README.md"
+  - "CONTRIBUTING.md"
+  - "docs/**/*.md"
+  - "backend/README.md"
+  - "frontend/README.md"
+
+# Ignore patterns for reviews
+exclude:
+  - "**/*.min.js"
+  - "**/*.min.css"
+  - "**/dist/**"
+  - "**/build/**"
+  - "**/node_modules/**"
+  - "**/__pycache__/**"
+  - "**/*.pyc"
+  - "**/venv/**"
+  - "**/.venv/**"
+  - "**/coverage/**"
+  - "**/.pytest_cache/**"
+  - "**/package-lock.json"
+  - "**/yarn.lock"
+  - "**/poetry.lock"
+
+# Code quality checks
+checks:
+  # Security vulnerabilities
+  security:
+    enabled: true
+    severity: ["critical", "high", "medium"]
+  
+  # Code complexity
+  complexity:
+    enabled: true
+    threshold: 15
+  
+  # Code duplication
+  duplication:
+    enabled: true
+    threshold: 5
+  
+  # Code style
+  style:
+    enabled: true
+  
+  # Performance issues
+  performance:
+    enabled: true
+  
+  # Best practices
+  best_practices:
+    enabled: true
+
+# Issue detection
+issues:
+  # Detect potential bugs
+  bug_risk:
+    enabled: true
+    severity: ["critical", "high"]
+  
+  # Detect code smells
+  code_smell:
+    enabled: true
+  
+  # Detect security issues
+  security_hotspot:
+    enabled: true
+
+# Labels to auto-apply based on changes
+labels:
+  - name: "backend"
+    patterns: ["backend/**/*"]
+  
+  - name: "frontend"
+    patterns: ["frontend/**/*"]
+  
+  - name: "documentation"
+    patterns: ["**/*.md", "docs/**/*"]
+  
+  - name: "tests"
+    patterns: ["**/tests/**/*", "**/*.test.*", "**/*.spec.*"]
+  
+  - name: "docker"
+    patterns: ["**/Dockerfile", "docker-compose.yml", ".dockerignore"]
+  
+  - name: "dependencies"
+    patterns: ["**/requirements.txt", "**/package.json"]
+  
+  - name: "security"
+    patterns: ["**/security.py", "**/auth.py"]
+  
+  - name: "database"
+    patterns: ["**/models/**/*", "**/migrations/**/*", "**/database.py"]
+
+# Custom review prompts
+prompts:
+  - name: "security-review"
+    prompt: "Focus specifically on security vulnerabilities, authentication issues, and potential exploits"
+  
+  - name: "performance-review"
+    prompt: "Focus on performance optimizations, database query efficiency, and potential bottlenecks"
+  
+  - name: "accessibility-review"
+    prompt: "Focus on accessibility (a11y) issues in the frontend components"
+
+# Tone settings
+tone_instructions: |
+  - Be constructive and helpful
+  - Provide specific examples for improvements
+  - Prioritize critical issues over style preferences
+  - Acknowledge good practices when present
+  - Suggest alternatives when pointing out issues
