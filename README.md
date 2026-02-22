@@ -2,7 +2,6 @@
 
 **Next-Generation Collaborative Development Platform with Persistent Linux Labs + AI Agent**
 
-> **Inspired by [SyncLab](https://github.com/sikehish/SyncLab)** - Combining real-time collaboration with persistent Docker workspaces
 
 A cutting-edge platform where developers can collaborate in real-time with video calling, whiteboard brainstorming, and shared code editing - all while working in persistent Linux environments that save your progress. Perfect for pair programming, coding interviews, hackathons, and remote teaching.
 
@@ -26,7 +25,7 @@ A cutting-edge platform where developers can collaborate in real-time with video
 
 ## 🎯 Overview
 
-Ghost Labs is a revolutionary collaborative development platform that combines the best of SyncLab's real-time features with powerful persistent workspace capabilities. Each user gets:
+Ghost Labs is a revolutionary collaborative development platform that combines the real-time features with powerful persistent workspace capabilities. Each user gets:
 
 - 🎥 **High-quality video/audio calling** for pair programming
 - 🎨 **Interactive whiteboard** for system design and brainstorming  
@@ -42,19 +41,12 @@ Perfect for **coding interviews**, **hackathons**, **remote teaching**, **code r
 ---
 
 ## ✨ Features
-
-### Inspired by SyncLab
-Ghost Labs incorporates proven collaboration features from [SyncLab](https://github.com/sikehish/SyncLab) and adds unique persistent workspace capabilities:
-
-**From SyncLab:**
 - ✨ **Video/Audio Calling** - Agora SDK integration for crystal-clear communication
 - ✨ **Whiteboard Collaboration** - Excalidraw for visual brainstorming
 - ✨ **Real-time Code Editor** - Monaco Editor (VS Code's engine) with live sync
 - ✨ **File Upload/Download** - Seamlessly transfer files to/from containers
 - ✨ **Real-time Chat** - Text messaging alongside voice
 - ✨ **Modular Architecture** - Clean component structure and service layers
-
-**Ghost Labs Exclusive:**
 - 💾 **Persistent Workspaces** - Containers that persist between sessions
 - 📸 **Advanced Snapshots** - Save/restore entire workspace states
 - 🤖 **AI Agent Integration** - Built-in coding assistant
@@ -429,16 +421,6 @@ For more troubleshooting, check the API documentation at http://localhost:8000/d
 - [ ] VS Code extension
 - [ ] Advanced AI features
 - [ ] Kubernetes deployment
-
----
-
-## 🙏 Acknowledgments
-
-- **[SyncLab](https://github.com/sikehish/SyncLab)** by @sikehish - Inspiration for real-time collaboration features
-- **Agora.io** - Real-time communication platform
-- **Excalidraw** - Amazing whiteboard tool
-- **Monaco Editor** - VS Code's powerful editor
-- All our contributors and supporters
 
 ---
 
