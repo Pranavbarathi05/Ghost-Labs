@@ -242,6 +242,22 @@ docker-compose up -d db redis
 
 ---
 
+## 📝 How to Claim an Issue
+
+1. **Read the docs**: Check `CONTRIBUTING.md` and `docs/GIT_WORKFLOW.md`
+2. **Comment on the issue**: Let others know you're working on it
+3. **Create a branch**: Follow the naming convention `feature/issue-number-description`
+4. **Work on it**: Implement the changes and test thoroughly
+5. **Submit PR**: Reference the issue number in your pull request
+
+## 🎓 Tips for Contributors
+
+- Start with issues labeled `good first issue`
+- Ask questions in the issue comments if unclear
+- Test your changes locally before submitting PR
+- Follow the code style of existing files
+- Update documentation if you change functionality
+
 ## 📚 Documentation
 
 | Document | Description |
