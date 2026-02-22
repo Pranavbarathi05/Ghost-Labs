@@ -1,42 +1,42 @@
-# ???? Quick Start Guide
+# 🚀 Quick Start Guide
 
 ## Directory Layout - Where to Work
 
 ```
 Ghost-Labs/
-???
-????????? ???? WORK HERE - Main Development
-???   ????????? backend/           ??? Python/FastAPI backend code
-???   ????????? frontend/          ??? React/TypeScript frontend code
-???   ????????? ai-service/        ??? AI agent service code
-???
-????????? ???? READ THESE - Documentation  
-???   ????????? docs/              ??? Guides and API docs
-???       ????????? DIRECTORY_GUIDE.md   ??? Start here!
-???       ????????? GIT_WORKFLOW.md      ??? Git best practices
-???       ????????? API.md               ??? API documentation
-???
-????????? ?????? CONFIG FILES - Usually don't modify
-???   ????????? docker-compose.yml       ??? Service orchestration
-???   ????????? .env.example            ??? Environment template
-???   ????????? .gitignore              ??? Git ignore rules
-???
-????????? ???? PROJECT DOCS - Read & follow
-???   ????????? README.md               ??? Main project readme
-???   ????????? CONTRIBUTING.md         ??? How to contribute
-???   ????????? CONTRIBUTORS.md         ??? Recognition
-???
-????????? ??????  GITHUB CONFIG - Maintainers only
-    ????????? .github/                ??? Templates & workflows
+│
+├── 💻 WORK HERE - Main Development
+│   ├── backend/           → Python/FastAPI backend code
+│   ├── frontend/          → React/TypeScript frontend code
+│   ├── ai-service/        → AI agent service code
+│
+├── 📚 READ THESE - Documentation  
+│   ├── docs/              → Guides and API docs
+│       ├── DIRECTORY_GUIDE.md   → Start here!
+│       ├── GIT_WORKFLOW.md      → Git best practices
+│       ├── API.md               → API documentation
+│
+├── ⚙️ CONFIG FILES - Usually don't modify
+│   ├── docker-compose.yml       → Service orchestration
+│   ├── .env.example            → Environment template
+│   ├── .gitignore              → Git ignore rules
+│
+├── 📖 PROJECT DOCS - Read & follow
+│   ├── README.md               → Main project readme
+│   ├── CONTRIBUTING.md         → How to contribute
+│   ├── CONTRIBUTORS.md         → Recognition
+│
+└── ⚠️  GITHUB CONFIG - Maintainers only
+    └── .github/                → Templates & workflows
 ```
 
-## ???? First Steps
+## 🎯 First Steps
 
-### 1?????? Read This First
+### 1️⃣ Read This First
 - [docs/DIRECTORY_GUIDE.md](docs/DIRECTORY_GUIDE.md) - Complete directory guide
 - [README.md](README.md) - Project overview and setup
 
-### 2?????? Setup Your Environment
+### 2️⃣ Setup Your Environment
 ```bash
 # Clone and enter directory
 cd Ghost-Labs
@@ -51,7 +51,7 @@ cp .env.example .env
 docker-compose up --build
 ```
 
-### 3?????? Start Coding
+### 3️⃣ Start Coding
 
 **Backend Development:**
 ```bash
@@ -69,13 +69,13 @@ cd frontend/src/
 # Styles in: *.css files
 ```
 
-### 4?????? Follow Git Workflow
+### 4️⃣ Follow Git Workflow
 - Read [docs/GIT_WORKFLOW.md](docs/GIT_WORKFLOW.md)
 - Create feature branches: `your-name/feature-name`
 - Commit often with clear messages
 - Create PRs when ready
 
-## ??? Common Questions
+## ❓ Common Questions
 
 **Q: Where do I add a new API endpoint?**  
 A: `backend/api/v1/` - edit or create a new file
@@ -92,14 +92,14 @@ A: No, those are maintained by project leads
 **Q: Where do I find documentation?**  
 A: `docs/` directory - start with `DIRECTORY_GUIDE.md`
 
-## ???? Need Help?
+## 🆘 Need Help?
 
 1. Check [docs/DIRECTORY_GUIDE.md](docs/DIRECTORY_GUIDE.md)
 2. Read [CONTRIBUTING.md](CONTRIBUTING.md)
 3. Ask in team chat or GitHub discussions
 4. Open an issue with `question` label
 
-## ???? Services & Ports
+## 🌐 Services & Ports
 
 When running `docker-compose up`:
 
@@ -109,4 +109,4 @@ When running `docker-compose up`:
 - **AI Service:** http://localhost:8001
 - **PostgreSQL:** localhost:5432
 
-Happy coding! ????
+Happy coding! 🎉
