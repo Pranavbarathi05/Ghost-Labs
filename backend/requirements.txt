@@ -11,5 +11,5 @@ passlib[bcrypt]==1.7.4
 python-multipart==0.0.22
 websockets==16.0
 docker==7.1.0
-python-dotenv==1.2.1
+python-dotenv==1.2.2
 email-validator==2.3.0
